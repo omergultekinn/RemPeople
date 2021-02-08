@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace RemPeople.Api.Controllers
 {
-    public class ApiBaseController : Controller
+    /// <summary>
+    /// Api için base controllerımız. 
+    /// Genel tanımlamalar olacaksa buraya tanımlanacak ve api controllerları burayı base alacaklar
+    /// </summary>
+    [ApiController]
+    [Route("api/v{version:apiVersion}/[controller]")]
+    public class ApiBaseController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        protected const string v1 = "1.0";
+        protected const string v1_1 = "1.1";
     }
 }
